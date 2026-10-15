@@ -1,0 +1,6 @@
+node_modules/
+dist/
+
+# Runtime assets copied out of the renderer packages at build time
+public/vendor/
+public/flyfish-viewer-assets.json

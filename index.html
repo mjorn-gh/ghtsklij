@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="referrer" content="no-referrer" />
+    <!--
+      A static host cannot send response headers, so the policy is declared here instead. Two
+      directives are ignored in meta form and are therefore absent: `frame-ancestors`, which is what
+      restricts who may embed this page, and `sandbox`. On a host that can send headers, send the
+      same policy there and add `frame-ancestors` naming the embedding application.
+    -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data:; font-src 'self' data:; connect-src 'self' blob: data:; worker-src 'self' blob:; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'"
+    />
+    <title>Document Preview</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        --surface: #ffffff;
+        --ink: #1a1d21;
+        --muted: #5c6470;
+        --line: #d9dee5;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --surface: #14171a;
+          --ink: #e8eaed;
+          --muted: #9aa3ad;
+          --line: #2b3036;
+        }
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+        background: var(--surface);
+        color: var(--ink);
+        font:
+          14px/1.5 system-ui,
+          sans-serif;
+      }
+      #status {
+        margin: 0;
+        padding: 8px 16px;
+        border-bottom: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 13px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      #viewer {
+        flex: 1;
+        min-height: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <p id="status">Starting…</p>
+    <div id="viewer"></div>
+    <script type="module" src="/src/viewer.ts"></script>
+  </body>
+</html>

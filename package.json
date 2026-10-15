@@ -1,0 +1,32 @@
+{
+  "name": "document-preview",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Sandboxed in-browser document preview: the host page downloads, the iframe renders.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "lint": "prettier --check . && tsc --noEmit"
+  },
+  "dependencies": {
+    "@file-viewer/core": "3.1.2",
+    "@file-viewer/renderer-email": "3.1.2",
+    "@file-viewer/renderer-image": "3.1.2",
+    "@file-viewer/renderer-pdf": "3.1.2",
+    "@file-viewer/renderer-spreadsheet": "3.1.2",
+    "@file-viewer/renderer-word": "3.1.2",
+    "@file-viewer/web": "3.1.2",
+    "rtf.js": "3.0.9"
+  },
+  "devDependencies": {
+    "@file-viewer/vite-plugin": "3.1.2",
+    "@types/node": "24.19.0",
+    "prettier": "3.9.9",
+    "typescript": "5.9.3",
+    "vite": "8.3.1",
+    "vitest": "5.0.2"
+  }
+}
